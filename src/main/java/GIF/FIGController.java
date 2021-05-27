@@ -2,91 +2,50 @@ package GIF;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.VBox;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class FIGController {
-    private int convFactor = 1;
-    @FXML
-    private ComboBox unitBox;
 
     @FXML
-    private Label weightUnit;
+    private ListView<Screen> listView;
 
     @FXML
-    private Label heightUnit;
+    private VBox firstColoumn;
 
     @FXML
-    private TextField weightTextField;
+    private Button face1;
 
     @FXML
-    private TextField heightTextField;
-
-    @FXML
-    private Label BMIResult;
-
-    @FXML
-    private VBox resultViewBox;
-
-    @FXML
-    void onCalculatePresed(ActionEvent event) {
-        try {
-
-            float weight = Float.parseFloat(weightTextField.getText());
-            float height = Float.parseFloat(heightTextField.getText());
-            float result = (convFactor * weight)/(height*height);
-            String stringResult = String.format("%.02f", result);
-            BMIResult.setText(stringResult);
-            if (result<18){
-                resultViewBox.setStyle("-fx-background-color:   #FEB132");
-            }
-            else if (result<24.9){
-                resultViewBox.setStyle("-fx-background-color:   #30A232");
-            }
-            else if (result<29.9){
-                resultViewBox.setStyle("-fx-background-color:   #E96024");
-            }else{
-                resultViewBox.setStyle("-fx-background-color:   #C0101B");
-            }
-        } catch(Exception e) {
-            if (e.getMessage() == "empty String"){
-                BMIResult.setText("The fields can not be empty");
-            }
-            else {
-                BMIResult.setText("The fields must be in numbers");
-            }
-        }
-
-
+    void onFace1Clicked(ActionEvent event) {
+        String value = ((Button)event.getSource()).getText();
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent content = new ClipboardContent();
+        content.putString("༼つ◕_◕༽つ");
+        clipboard.setContent(content);
     }
 
-    @FXML
-    void onResetPressed(ActionEvent event) {
-        weightTextField.setText("");
-        heightTextField.setText("");
-        BMIResult.setText("Please fill the empty fields");
-    }
+    private final ObservableList<Screen> screens = FXCollections.observableArrayList();
 
-    @FXML
-    void onUnitBoxUpdated(ActionEvent event) {
-
-        if (unitBox.getValue().toString()=="Metric"){
-            weightUnit.setText("kg");
-            heightUnit.setText("m");
-            convFactor = 1;
-        }
-        else{
-            weightUnit.setText("lbs");
-            heightUnit.setText("in");
-            convFactor = 703;
-        };
-    }
-
-    /* This function starts in the beginning of the program */
     public void initialize(){
-        unitBox.getItems().addAll("Metric","English");
+
+        screens.add(new Screen("Text Faces","https://avatars.slack-edge.com/2017-02-13/139868781600_2e42bf3227df8e3ce121_512.png",1));
+        screens.add(new Screen("GIFs","https://avatars.slack-edge.com/2017-02-13/139868781600_2e42bf3227df8e3ce121_512.png",2));
+        listView.setItems(screens);
+        listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Screen>() {
+            @Override
+            public void changed(ObservableValue<? extends Screen> observable, Screen oldValue, Screen newValue) {
+                System.out.println(newValue.getType());
+            }
+        });
+
     }
 
 }
