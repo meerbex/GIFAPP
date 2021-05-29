@@ -3,12 +3,13 @@ package GIF;
 public class Screen {
     private String title;
     private String imageUrl;
-    private int type;
+    private String[] faces;
 
-    public Screen(String title, String imageUrl, int type) {
+
+    public Screen(String title, String[] faces, String imageUrl) {
         this.title = title;
         this.imageUrl = imageUrl;
-        this.type = type;
+        this.faces = faces;
     }
 
     public String getTitle() {
@@ -27,12 +28,12 @@ public class Screen {
         this.imageUrl = imageUrl;
     }
 
-    public int getType() {
-        return type;
+    public String[] getFaces() {
+        return faces;
     }
 
-    public void setType(int type) {
-        this.type = type;
+    public void setFaces(String[] faces) {
+        this.faces = faces;
     }
 
     @Override
