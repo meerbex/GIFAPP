@@ -1,0 +1,10 @@
+GIF/Screen.java
+ GIF.Screen
+GIF/NewController.java
+ GIF.NewController
+GIF/GIFMainApp.java
+ GIF.GIFMainApp
+GIF/FIGController.java
+ GIF.FIGController
+ GIF.FIGController$1
+ GIF.FIGController$2
