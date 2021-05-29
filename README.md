@@ -27,7 +27,7 @@ Open the folder using your IDE, the libraries and some other options
 
 # Planned App's features list:
 The program was written, to simplify the searching of text emoticons, GIF's and images using the automatic copying.
-#List of completed features: 
+# List of completed features: 
 Text emoticons.
-#List of features yet to implement: 
+# List of features yet to implement: 
 GIF's, images.
