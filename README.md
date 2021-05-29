@@ -16,16 +16,16 @@ The authors of this project: **Meerbek Akimzhanov**, **Romiz Abdullaev**
 4) Paste it in the text or chat
 5) After clicking you can see your emoticon in the chat
 
-#Software Requirements: 
+# Software Requirements: 
 jdk ver.11.0.2; javafx ver.16
 
-#Libraries used: 
+# Libraries used: 
 This java app was written in java and libriries like JavaFx and some Java API libririres, GIPHY SDK, and for getting Images we were using REST API libriries like org.json and org.apache.httpcomponents
 
-#Instalation Requirements: 
+# Instalation Requirements: 
 Open the folder using your IDE, the libraries and some other options
 
-#Planned App's features list:
+# Planned App's features list:
 The program was written, to simplify the searching of text emoticons, GIF's and images using the automatic copying.
 #List of completed features: 
 Text emoticons.
