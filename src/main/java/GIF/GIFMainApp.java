@@ -15,7 +15,7 @@ public class GIFMainApp extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("GIF.fxml"));
 
         Scene scene = new Scene(root);
-        primaryStage.setTitle("BMI Calculator");
+        primaryStage.setTitle("Face Copy Clipboard");
         primaryStage.setScene(scene);
         primaryStage.show();
 
